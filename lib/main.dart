@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gradient_example/colors.dart';
 
 void main() {
   runApp(const MyApp());
@@ -8,11 +9,22 @@ class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-        // Remove the debug banner
-        debugShowCheckedModeBanner: false,
-        title: 'Gradient AppBar',
-        home: HomePage());
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Flutter Custom Color Example',
+      theme: ThemeData.dark().copyWith(
+          scaffoldBackgroundColor: mobileBackgroundColor,
+          primaryColor: secondaryColor),
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Flutter custom color example'),
+        ),
+        body: Center(
+            child: Text(
+          'Flutter custom color example',
+        )),
+      ),
+    );
   }
 }
 
