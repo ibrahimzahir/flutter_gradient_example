@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gradient_example/colors.dart';
+import 'package:flutter_gradient_example/layout/layout.dart';
+import 'package:flutter_gradient_example/layout/web_screen_layout.dart';
+import 'package:flutter_gradient_example/utils/colors.dart';
+
+import 'layout/mobile_screen_layout.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,16 +17,11 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Custom Color Example',
       theme: ThemeData.dark().copyWith(
-          scaffoldBackgroundColor: mobileBackgroundColor,
-          primaryColor: secondaryColor),
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Flutter custom color example'),
-        ),
-        body: Center(
-            child: Text(
-          'Flutter custom color example',
-        )),
+        scaffoldBackgroundColor: mobileBackgroundColor,
+      ),
+      home: ResponsiveLayout(
+        mobileScreenLayout: MobileScreenLayout(),
+        webScreenLayout: WebScreenLayout(),
       ),
     );
   }
